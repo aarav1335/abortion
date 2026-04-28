@@ -126,6 +126,13 @@
                 text-align: center;
                 background: white;
 
+                > iframe {
+                    display: block;
+                    width: 100%;
+                    border: none;
+                    margin-inline: auto;
+                }
+
                 > figcaption {
                     font: 500 75% var(--font-sans);
                     background: var(--color-neutral-95);
@@ -168,14 +175,14 @@
         </header>
 
         <main>
-            <h2>Proposition: [STATE PROPOSITION]</h2>
+            <h2>Abortion restrictions do not eliminate demand; instead, they create geographic barriers that force residents to travel out of state — and this burden falls disproportionately on residents of Republican-leaning states, where restrictive policies concentrate the geographic and logistical costs onto individuals.</h2>
 
             <section>
                 <h3>FOR the Proposition</h3>
 
                 <figure>
-                    <img src="net_abortion_flow_hires.png" alt="A plot showing the net abortion flow sorted by the flow, and colored by their political leaning." />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <iframe src="net_abortion_flow.html" title="Net abortion flow by state, colored by political leaning." scrolling="no"></iframe>
+                    <figcaption>Restrictions don't eliminate demand; they shift the burden onto individuals. Every bar below zero represents a state whose residents had to leave to access care they would have sought regardless.</figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
@@ -191,8 +198,8 @@
                 <h3>AGAINST the Proposition</h3>
 
                 <figure>
-                    <img src="plot1against.png" alt="" />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <iframe src="plot1against.html" title="Against proposition visualization."></iframe>
+                    <figcaption>Republican-led states record significantly fewer abortions per 1,000 women (about 5.8 fewer, comparing medians), even after accounting for residents who travel out of state. The gap persists: restrictions suppress demand, not just geography.</figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
@@ -210,6 +217,18 @@
                 <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
             </section>
         </main>
+    <script>
+        document.querySelectorAll("figure iframe").forEach(iframe => {
+            iframe.addEventListener("load", () => {
+                setTimeout(() => {
+                    iframe.contentWindow.dispatchEvent(new Event("resize"));
+                    setTimeout(() => {
+                        iframe.style.height = iframe.contentDocument.documentElement.scrollHeight + "px";
+                    }, 100);
+                }, 400);
+            });
+        });
+    </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
