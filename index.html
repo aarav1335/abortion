@@ -188,9 +188,14 @@
                 <p>Design Decisions and Rationale:</p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li>Sorted bar chart creates a strong left–right narrative (Score: -1.0)</li>
+                        <ul>States are ordered from largest net outflow to largest net inflow, which creates a clear visual divide between “exporters” and “importers.” This ordering makes the pattern feel structured and intentional, even though the underlying data is continuous. It encourages the viewer to interpret the data as a binary split rather than a spectrum.</ul>
+                    <li>Political color encoding creates a causal narrative (Score: -1.5)</li>
+                        <ul>Using red for Republican states and blue for Democratic states strongly aligns the data with political identity. Because many of the largest negative values are red and positive values are blue, the color choice reinforces the claim that political leaning drives abortion flow, suggesting causation indirectly, even though the visualization only shows correlation.</ul>
+                    <li>Annotations explicitly guide reader takeaways (Score: -2)</li>
+                        <ul>The language used for text annotations directly tells the viewer what conclusion to draw. This reduces ambiguity and makes the chart highly persuasive, but also removes space for independent interpretation.</ul>
+                    <li>Centering at zero draws attention to the important differences (Score: -2)</li>
+                        <ul>Placing a vertical divider at zero with a suggestive label like (“Net Exporters” vs “Net Importers”) sets up the data to emphasize a clear distinction between the two categories of states. This highlights imbalance and reinforces the idea that people are being “pushed” or “pulled” across states, strengthening the argument about burden shifting.</ul>
                 </ul>
             </section>
 
@@ -205,16 +210,25 @@
                 <p>Design Decisions and Rationale:</p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li>A boxplot allows readers to easily compare and contrast between the two groups (Score: 1.0)</li>
+                        <ul>The groups in this plot are categorical rather than numeric, which is where box plots shine. Each box plot clearly represents Democratic and Republican states and displays the median abortion rate per group, the spread of the data (IQR), and the presence of outliers. All of which allows the reader to grasp the distributional differences between the groups easily. For example, the Democratic box is much wider than the Republican box which indicates there is far more variation across blue states than red states. </ul>
+                    <li>Political color enhances the political narrative (Score: -2.0)</li>
+                        <ul>Using the Democratic and Republican party colors creates an immediate visual separation before the reader processes the labels. This allows the plot to remain incredibly easy for the reader to understand and interpret. We separate the two groups into a distinct red vs blue to further enforce the narrative that (typically) more conservative red states lean one way, while blue states lean the other. We also get rid of swing states to remove the “middle ground,” further stratifying this difference.</ul>
+                    <li>Dashed median reference lines make the gap apparent between groups (Score: -1.5)</li>
+                        <ul>The horizontal dashed lines drawn across both groups at their respective medians (13.6 and 7.8), is able to illustrate to the reader the stark difference between the two. The median lines reinforce the boxplot’s strength of easily making distributional comparisons between categories immediate and visually intuitive. While an average might be more convincing due to a higher number of high outliers in blue states, comparing medians aligns more with typical box-plot use. However, this line still does highlight the differences between the two categories, leading the reader further into the correlation between states political leaning and abortion rate, instead of per-state policies.</ul>
+                    <li>Plotting of each individual state per group adds transparency (Score: 1.0)</li>
+                        <ul>The addition of the dots representing each state on top of the box plots displays the raw data behind the summary statistics. This prevents the box plot from feeling like an abstraction and gives the argument more credibility because readers are able to see the pattern that holds across most individual states. This also helps with readers being able to do their own research if desired, so they might be able to match up different states with specific policies or cultures that influence abortion rates.</ul>
                 </ul>
             </section>
 
             <section>
                 <h2>Final Reflection</h2>
 
-                <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+                <p>The design process across both visualizations was a study in the power of calculated transformations. While mapping basic variables was straightforward, the most difficult aspect was refining advanced transformations, such as the grouping of states by political leaning and the calculation of net flow. This was to ensure they felt like natural properties of the data rather than artificial constructs. We were surprised by how effectively subtle encodings could manipulate a narrative. For instance, by simply removing swing states in the boxplot to stratify the groups, we created a visual polarization that felt statistically sound but was narratively aggressive. The integration of interactivity via hover-states and tooltips added a layer of complexity by offering a facade of transparency that allowed the viewer to explore the data, even though the structural sorting and zero-centering of the bar chart had already pre-determined their path of discovery.</p>
+
+                <p>We now define ethical analysis and visualization as the responsibility to maintain a balance between a persuasive "nudge" and the viewer's interpretative agency. We attempted to facilitate effortless reading while also ensuring that any deceptive practices remain imperceptible to the casual observer until closer study. In this project, we realized that true ethical risk doesn't lie in obvious lies, but in the imperceptible slants of annotations and labels. When a title explicitly frames a narrative, it removes the viewer's ability to see the data as a neutral spectrum of healthcare access, transforming a data summary into a directed argument.</p>
+
+                <p>The boundary between acceptable persuasive choices and misleading ones is drawn at the point where a design choice intentionally masks the underlying distribution of the data. Acceptable persuasion includes the use of medians and IQR to highlight central tendencies and make complex datasets digestible. However, a choice becomes misleading when it obscures variance to the point of a "second-look" revelation. For instance, if the visual design leads a reader to a causal conclusion (e.g., "Politics causes flow") without providing the raw data points to show the exceptions to that rule, it has crossed into deception. Ultimately, we aim to create an ethical visualization that provides the "receipts" to be more transparent (like the usage of jittered state dots), allowing a seasoned reader to challenge the designer’s own narrative.</p>
             </section>
         </main>
     <script>
